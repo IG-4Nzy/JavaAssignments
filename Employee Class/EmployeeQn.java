@@ -39,9 +39,19 @@ class Developer extends Employee{
 
 class EmployeeQn{
     public static void main(String[] args){
-        Manager manager = new Manager("manager",40000);
         Employee employee = new Employee("employee",30000);
+        Manager manager = new Manager("manager",40000);
         Developer developer = new Developer("developer",25000);
+
+        System.out.println("Employee Details - " + employee.getName() + " and " + employee.getSalary());
+        System.out.println("Manager Details - " + manager.getName() + " and " + manager.getSalary());
+        System.out.println("Developer Details - " + developer.getName() + " and " + developer.getSalary());
+
+        System.out.println("\nSalary incremented by 2000/- \n");
+
+        employee.setSalary(32000);
+        manager.setSalary(42000);
+        developer.setSalary(27000);
 
         System.out.println("Employee Details - " + employee.getName() + " and " + employee.getSalary());
         System.out.println("Manager Details - " + manager.getName() + " and " + manager.getSalary());
