@@ -1,0 +1,3 @@
+Some contents for testing unique word counts
+there is some line here
+each line consists of some words
