@@ -6,6 +6,7 @@ import com.studentCredWithoutDb.studentCredWithoutDb.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,6 +23,7 @@ public class StudentImpl implements StudentService {
         student.setName(studentDto.getName());
         student.setDepartment(studentDto.getDepartment());
         student.setRollNum(studentDto.getRollNum());
+        student.setRank(studentDto.getRank());
         studentsList.add(student);
         return "student created";
     }
@@ -33,6 +35,7 @@ public class StudentImpl implements StudentService {
                 s.setName(studentDto.getName());
                 s.setDepartment(studentDto.getDepartment());
                 s.setRollNum(studentDto.getRollNum());
+                s.setRank(studentDto.getRank());
                 return "Student updated";
             }
         }
@@ -55,8 +58,30 @@ public class StudentImpl implements StudentService {
             dto.setName(s.getName());
             dto.setRollNum(s.getRollNum());
             dto.setDepartment(s.getDepartment());
+            dto.setRank(s.getRank());
             dtoList.add(dto);
         }
         return dtoList;
     }
+
+    @Override
+    public List<StudentDto> getTopThreeStudentsList() {
+
+        List<StudentDto> dtoList = new ArrayList<>();
+        for (Student s : studentsList) {
+            StudentDto dto = new StudentDto();
+            dto.setId(s.getId());
+            dto.setName(s.getName());
+            dto.setRank(s.getRank());
+            dto.setRollNum(s.getRollNum());
+            dto.setDepartment(s.getDepartment());
+            dtoList.add(dto);
+        }
+        return dtoList.stream()
+                .sorted(Comparator.comparingInt(StudentDto::getRank))
+                .limit(3).
+                toList();
+    }
+
+
 }

@@ -5,6 +5,15 @@ public class StudentDto {
     private String name;
     private String department;
     private Integer rollNum;
+    private Integer rank;
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
 
     public String getId() {
         return id;
