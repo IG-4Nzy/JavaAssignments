@@ -1,10 +1,10 @@
 package com.studentCredWithDb.studentCredWithDb.Dto;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 
 @Data
-public class StudentDto {
+public class StudentClassDto {
     private String id;
-    private String name;
-    private Integer rank;
+    private String className;
 }

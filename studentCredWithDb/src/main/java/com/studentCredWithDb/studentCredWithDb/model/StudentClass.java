@@ -5,11 +5,10 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "students")
+@Document(collection = "studentClass")
 @Data
-public class Student {
+public class StudentClass {
     @Id
     private ObjectId id;
-    private String name;
-    private Integer rank;
+    private String className;
 }
