@@ -5,15 +5,11 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Map;
-
-@Document(collection = "students")
+@Document(collection = "teachers")
 @Data
-public class Student {
+public class Teacher {
     @Id
     private ObjectId id;
     private String name;
-    private Integer rank;
-    private String classId;
-    private Map<String,Integer> subjects;
+    private String subjectId;
 }

@@ -2,13 +2,13 @@ package com.studentCredWithDb.studentCredWithDb.Dto;
 
 import lombok.Data;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
-public class StudentDto {
+public class StudentResponseDto {
     private String id;
     private String name;
     private Integer rank;
     private String classId;
-    private Map<String,Integer> subjects;
+    private List<SubjectDto> subjects;
 }
