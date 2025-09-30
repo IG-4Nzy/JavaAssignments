@@ -1,4 +1,4 @@
-package com.studentCredWithDb.studentCredWithDb.Implementations;
+package com.studentCredWithDb.studentCredWithDb.impl;
 
 import com.studentCredWithDb.studentCredWithDb.Dto.TeacherDto;
 import com.studentCredWithDb.studentCredWithDb.model.Teacher;
@@ -22,7 +22,7 @@ public class TeacherServiceImpl implements TeacherService {
         Teacher teacher = new Teacher();
         teacher.setId(new ObjectId());
         teacher.setName(teacherDto.getName());
-        teacher.setSubjectId(teacher.getSubjectId());
+        teacher.setSubjectId(teacherDto.getSubjectId());
         repository.save(teacher);
         teacherDto.setId(teacher.getId().toString());
         return teacherDto;

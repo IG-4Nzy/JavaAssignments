@@ -1,6 +1,7 @@
 package com.studentCredWithDb.studentCredWithDb.controller;
 
 import com.studentCredWithDb.studentCredWithDb.Dto.StudentClassDto;
+import com.studentCredWithDb.studentCredWithDb.Dto.StudentClassResponseDto;
 import com.studentCredWithDb.studentCredWithDb.service.StudentClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,8 +38,8 @@ public class StudentClassController {
     }
 
     @GetMapping("get-student-class-list")
-    public ResponseEntity<List<StudentClassDto>> getStudentClassList(){
-        List<StudentClassDto> students = service.getStudentClassList();
+    public ResponseEntity<List<StudentClassResponseDto>> getStudentClassList(){
+        List<StudentClassResponseDto> students = service.getStudentClassList();
         return new ResponseEntity<>(students,HttpStatus.OK);
     }
 

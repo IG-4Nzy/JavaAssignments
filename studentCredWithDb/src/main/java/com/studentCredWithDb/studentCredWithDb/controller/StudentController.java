@@ -1,6 +1,7 @@
 package com.studentCredWithDb.studentCredWithDb.controller;
 
 import com.studentCredWithDb.studentCredWithDb.Dto.StudentDto;
+import com.studentCredWithDb.studentCredWithDb.Dto.StudentResponseDto;
 import com.studentCredWithDb.studentCredWithDb.service.StudentService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,12 @@ public class StudentController {
     }
 
     @GetMapping("get-students-list")
-        public ResponseEntity<List<StudentDto>> getStudentsList(@RequestParam(required = false) Integer topNRange ){
-        List<StudentDto> response = service.getStudentsList(topNRange);
-        return new ResponseEntity<>(response,HttpStatus.OK);
+    public ResponseEntity<List<StudentResponseDto>> getStudentsList(@RequestParam(required = false) Integer topNRange,
+                                                                    @RequestParam(required = false) String name,
+                                                                    @RequestParam(required = false) String classId,
+                                                                    @RequestParam(required = false) Integer rank
+    ) {
+        List<StudentResponseDto> response = service.getStudentsList(topNRange, name, classId, rank);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
